@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  backend:
+    build: { context: ., dockerfile: ./backend/Dockerfile }
+    ports: [ "3001:3001" ]
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_WAIT_HOST: db
+      DB_WAIT_PORT: 5432
+    depends_on: { db: { condition: service_healthy } }
+    networks: [ cafe-startay-network ]
+    healthcheck: { test: [ "CMD-SHELL", "curl -f http://localhost:3001/api/ingredients || exit 1" ], interval: 10s, timeout: 5s, retries: 5, start_period: 30s }
+  frontend:
+    build: { context: ., dockerfile: ./frontend/Dockerfile }
+    ports: [ "8080:80" ]
+    environment: { BACKEND_WAIT_HOST: backend, BACKEND_WAIT_PORT: 3001 }
+    depends_on: { backend: { condition: service_healthy } }
+    networks: [ cafe-startay-network ]
+  db:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes: [ "db_data:/var/lib/postgresql/data" ]
+    ports: [ "5432:5432" ]
+    networks: [ cafe-startay-network ]
+    healthcheck: { test: [ "CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB" ], interval: 5s, timeout: 5s, retries: 5, start_period: 30s }
+networks: { cafe-startay-network: { driver: bridge } }
+volumes: { db_data: { driver: local } }

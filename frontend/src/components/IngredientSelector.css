@@ -1,0 +1,50 @@
+/* frontend/src/components/IngredientSelector.css */
+
+.ingredient-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* Espaço entre os botões */
+  margin-bottom: 30px;
+}
+
+.ingredient-button {
+  background-color: #f0f0f0; /* Cor padrão para ingredientes não selecionados */
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 25px; /* Borda arredondada para pills */
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.ingredient-button:hover:not(.selected):not(:disabled) {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+  transform: translateY(-2px); /* Pequeno efeito de elevação no hover */
+}
+
+.ingredient-button.selected {
+  background-color: #28a745; /* Verde para ingrediente selecionado */
+  color: white;
+  border-color: #28a745;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+}
+
+.ingredient-button:disabled {
+  background-color: #e9ecef;
+  color: #adb5bd;
+  border-color: #dee2e6;
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+.limit-message {
+  color: #fd7e14; /* Cor para mensagem de limite */
+  font-size: 0.85em;
+  margin-top: 10px;
+  width: 100%; /* Garante que a mensagem ocupe a largura total */
+}

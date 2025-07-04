@@ -1,0 +1,65 @@
+/* frontend/src/components/CoffeeSummary.css */
+
+.coffee-summary-card {
+  background-color: #e6f7ff; /* Um azul claro para o card de resumo */
+  border: 1px solid #b3e0ff;
+  border-radius: 10px;
+  padding: 25px;
+  margin-top: 40px;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+  text-align: center;
+}
+
+.coffee-summary-card h3 {
+  color: #0056b3; /* Azul escuro para o título */
+  margin-bottom: 20px;
+  font-size: 1.6em;
+}
+
+.classic-recognition {
+  color: #28a745; /* Verde para reconhecimento clássico */
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.custom-recognition {
+  color: #6c757d; /* Cinza para café personalizado */
+  font-style: italic;
+  font-size: 1.05em;
+  margin-bottom: 10px;
+}
+
+.final-coffee-name {
+  color: #343a40; /* Quase preto para o nome final */
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.ingredients-list {
+  color: #495057; /* Um cinza um pouco mais escuro */
+  font-size: 0.95em;
+  margin-bottom: 15px;
+}
+
+.total-price {
+  color: #007bff; /* Azul vibrante para o preço */
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+.confirm-order-button {
+  background-color: #007bff; /* Azul para o botão de confirmar pedido */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-order-button:hover {
+  background-color: #0056b3;
+}
