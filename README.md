@@ -1,12 +1,3 @@
-# Projeto: cafe-StarTay - Construtor de Cafés Personalizados
-
-## Processo Seletivo 01517/2025 - Analista de Qualidade Software - Pleno
-
-* **Candidato:** Tayane Pereira Ramos
-* **Email:** tayanep.ramos@gmail.com
-
----
-
 ## 1. Visão Geral da Aplicação
 
 O "cafe-StarTay" é uma aplicação web que permite aos clientes de uma cafeteria escolherem e personalizarem seus cafés. O sistema oferece um menu de ingredientes base e adicionais, identifica se a combinação resulta em um "sabor clássico" e gera um nome e uma descrição para a bebida final. A aplicação é composta por um frontend React.js, um backend Node.js com Express.js, e utiliza PostgreSQL como banco de dados. Toda a infraestrutura é orquestrada via Docker.
